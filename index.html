@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Renderer</title>
+    <style>
+        #svg-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .svg-item {
+            max-width: 25%;
+            max-height: 25%;
+            padding: 10px;
+        }
+        .svg-item svg {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label for="svg-select">Choose an SVG:</label>
+        <select id="svg-select" onchange="toggleRatioInput()">
+            <option value="dog.svg">Dog</option>
+            <option value="cat.svg">Cat</option>
+            <option value="water.svg">Water</option>
+        </select>
+        <div id="count-input">
+            <label for="object-count">Number of objects:</label>
+            <input type="number" id="object-count" min="1" max="100" value="4">
+        </div>
+        <div id="ratio-input" style="display: none;">
+            <label for="ratio-value">Water Ratio (0 to 1):</label>
+            <input type="number" id="ratio-value" min="0" max="1" step="0.01" value="0.5">
+        </div>
+        <button onclick="renderSVG()">Show SVG</button>
+    </div>
+    <div id="svg-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
